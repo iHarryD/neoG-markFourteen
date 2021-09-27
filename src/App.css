@@ -25,6 +25,7 @@
 body {
   color: var(--main-fc);
   background: var(--background-clr);
+  transition: background 2500ms;
 }
 
 input,
@@ -131,4 +132,19 @@ footer {
 }
 #portfolio-link:hover {
   opacity: 1;
+}
+
+/* Extra */
+
+body.in-loss {
+  --accent-clr: #ff5656;
+}
+
+body.in-loss input,
+body.in-loss button {
+  border-color: #f00;
+}
+
+body.in-loss .output-div {
+  color: #f00;
 }

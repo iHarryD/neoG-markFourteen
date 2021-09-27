@@ -26,6 +26,11 @@ function App() {
     } else {
       percent = Math.abs(Number(percent.toFixed(3)));
     }
+    if (percent >= 50 && result < 0) {
+      document.body.classList.add("in-loss");
+    } else {
+      document.body.classList.remove("in-loss");
+    }
     setResultMag(result);
     setResultPercent(percent);
   }
