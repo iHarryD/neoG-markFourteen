@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/neoG-markFourteen/static/css/main.2061b975.chunk.css",
+    "main.js": "/neoG-markFourteen/static/js/main.a9ee6dd3.chunk.js",
+    "main.js.map": "/neoG-markFourteen/static/js/main.a9ee6dd3.chunk.js.map",
+    "runtime-main.js": "/neoG-markFourteen/static/js/runtime-main.7c84e825.js",
+    "runtime-main.js.map": "/neoG-markFourteen/static/js/runtime-main.7c84e825.js.map",
+    "static/js/2.e5f9d11b.chunk.js": "/neoG-markFourteen/static/js/2.e5f9d11b.chunk.js",
+    "static/js/2.e5f9d11b.chunk.js.map": "/neoG-markFourteen/static/js/2.e5f9d11b.chunk.js.map",
+    "static/js/3.16075c59.chunk.js": "/neoG-markFourteen/static/js/3.16075c59.chunk.js",
+    "static/js/3.16075c59.chunk.js.map": "/neoG-markFourteen/static/js/3.16075c59.chunk.js.map",
+    "index.html": "/neoG-markFourteen/index.html",
+    "static/css/main.2061b975.chunk.css.map": "/neoG-markFourteen/static/css/main.2061b975.chunk.css.map",
+    "static/js/2.e5f9d11b.chunk.js.LICENSE.txt": "/neoG-markFourteen/static/js/2.e5f9d11b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7c84e825.js",
+    "static/js/2.e5f9d11b.chunk.js",
+    "static/css/main.2061b975.chunk.css",
+    "static/js/main.a9ee6dd3.chunk.js"
+  ]
+}
