@@ -4,41 +4,51 @@ import { useState } from "react";
 function App() {
   const [magnitudeMessage, setMagnitudeMessage] = useState("");
   const [percentMessage, setPercentMessage] = useState("");
-  const [initialPrice, setInitialPrice] = useState(0);
-  const [quantity, setquantity] = useState(0);
-  const [currentPrice, setcurrentPrice] = useState(0);
-  const [resultMag, setResultMag] = useState(0);
-  const [resultPercent, setResultPercent] = useState(0);
+  const [initialPrice, setInitialPrice] = useState("");
+  const [quantity, setquantity] = useState("");
+  const [currentPrice, setcurrentPrice] = useState("");
+  const [resultMag, setResultMag] = useState("");
+  const [resultPercent, setResultPercent] = useState("");
 
   function calculateResult() {
-    let result = currentPrice * quantity - initialPrice * quantity;
-    let percent = (result / quantity / initialPrice) * 100;
-    if (result < 0) {
-      setMagnitudeMessage("loss");
-      setPercentMessage("Decrement");
-      Math.abs(result);
+    let result =
+      Number(currentPrice) * Number(quantity) -
+      Number(initialPrice) * Number(quantity);
+    let percent =
+      (Number(result) / Number(quantity) / Number(initialPrice)) * 100;
+    if (currentPrice < 0 || quantity < 0 || initialPrice < 0) {
+      setMagnitudeMessage("Values cannot be negative.");
+      setResultMag("");
+      setPercentMessage("");
+      setResultPercent("");
     } else {
-      setMagnitudeMessage("profit");
-      setPercentMessage("Increment");
+      if (result < 0) {
+        setMagnitudeMessage("Your loss is ₹ ");
+        setPercentMessage("Decrement of ");
+        Math.abs(result);
+      } else {
+        setMagnitudeMessage("Your profit is ₹ ");
+        setPercentMessage("Increment of ");
+      }
+      if (isNaN(percent)) {
+        percent = 0;
+      } else {
+        percent = Math.abs(Number(percent.toFixed(3)));
+      }
+      if (percent >= 50 && result < 0) {
+        document.body.classList.add("in-loss");
+      } else {
+        document.body.classList.remove("in-loss");
+      }
+      setResultMag(`${result}.`);
+      setResultPercent(`${percent}%.`);
     }
-    if (isNaN(percent)) {
-      percent = 0;
-    } else {
-      percent = Math.abs(Number(percent.toFixed(3)));
-    }
-    if (percent >= 50 && result < 0) {
-      document.body.classList.add("in-loss");
-    } else {
-      document.body.classList.remove("in-loss");
-    }
-    setResultMag(result);
-    setResultPercent(percent);
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Stocks Calculator: Broke or Rock</h1>
+        <h1>Broke or Rock</h1>
       </header>
       <main>
         <form>
@@ -56,11 +66,7 @@ function App() {
           <label htmlFor="quantity">Numbers of stocks purchased: </label>
           <input
             onChange={(event) => {
-              if (event.target.value < 0) {
-                alert("Quantity cannot be negative.");
-              } else {
-                setquantity(event.target.value);
-              }
+              setquantity(event.target.value);
             }}
             type="number"
             name="quantity"
@@ -85,8 +91,9 @@ function App() {
           </button>
         </form>
         <div className="output-div">
-          Your {magnitudeMessage} is {resultMag} (₹). {percentMessage} of{" "}
-          {resultPercent}%.
+          {magnitudeMessage}
+          {resultMag} {percentMessage}
+          {resultPercent}
         </div>
       </main>
       <footer>
@@ -107,7 +114,7 @@ function App() {
         </ul>
         <p id="portfolio-link">
           Website created by{" "}
-          <a href="https://iharryd.github.io/personal-portfolio/">Harry</a>
+          <a href="https://iharryd.github.io/portfolio/">Harry</a>
         </p>
       </footer>
     </div>
